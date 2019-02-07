@@ -2,11 +2,12 @@
 FROM php:5-apache
 
 # Open up ports on the server
-EXPOSE <user-specified-ports>
+EXPOSE 8080
 
 # Add repository files to server
-ADD ./<repo-name> /var/www/html/
+#ADD ./<repo-name> /var/www/html/
 WORKDIR /var/www/html
+COPY . .
 
 # Install dependencies
 RUN apt-get upgrade && apt-get -y update && apt-get install -y install mysql-client php-apc pwgen python-setuptools curl unzip # runnable-cache
